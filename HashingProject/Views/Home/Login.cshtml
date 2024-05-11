@@ -1,0 +1,82 @@
+﻿@model LoginModel
+<style>
+    /* Styles for the login form container */
+.login-container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Styles for the form heading */
+.login-heading {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Styles for form fields */
+.login-form-field {
+  margin-bottom: 15px;
+}
+
+/* Styles for form labels */
+.login-form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Styles for form input fields */
+.login-form-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Styles for the login button */
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Styles for error messages */
+.login-error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Styles for success messages */
+.login-success-message {
+  color: green;
+  margin-top: 10px;
+}
+</style>
+<h2>Login</h2>
+
+<form asp-action="Login" method="post">
+    <div class="login-container">
+        <h2 class="login-heading">Login</h2>
+        <div class="login-form-field">
+            <label class="login-form-label" for="Name">Name:</label>
+            <input asp-for="Name" type="text" id="Name" class="login-form-input" name="Name">
+        </div>
+        <div class="login-form-field">
+            <label class="login-form-label" for="password">Password:</label>
+            <input asp-for="Password" type="password" id="password" class="login-form-input" name="password">
+        </div>
+        <button class="login-button" type="submit">Login</button>
+        <p style="color:red">@ViewBag.Message</p>
+        Don't have an account? <a href="@Url.Action("Register", "Home")">Create Account</a>
+
+    </div>
+</form>
+
